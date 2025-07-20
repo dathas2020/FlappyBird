@@ -5,6 +5,7 @@ public class PipeSpawnerScript : MonoBehaviour
     [SerializeField] private GameObject pipe;
     [SerializeField] private float spawnRate = 2.5f;
     private float timer;
+    public Vector2 spawnRateRange = new Vector2(4f, 5f);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +19,7 @@ public class PipeSpawnerScript : MonoBehaviour
     }
 
     void Spawn() {
+        spawnRate = RandSpawnrate();
         if (timer < spawnRate) {
             timer += Time.deltaTime;
         } else {
@@ -31,5 +33,10 @@ public class PipeSpawnerScript : MonoBehaviour
         float y = Random.Range(-12, 12);
         Vector3 position = new Vector3 (27, y, 0);
         return position;
+    }
+
+    float RandSpawnrate() {
+        float rate = Random.Range(spawnRateRange.x, spawnRateRange.y);
+        return rate;
     }
 }

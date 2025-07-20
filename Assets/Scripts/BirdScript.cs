@@ -5,7 +5,7 @@ public class BirdScript : MonoBehaviour
     [SerializeField] private float flapStrength = 15;
     [SerializeField] private Rigidbody2D birdRigidBody;
     public LogicScript logic;
-    private bool birdIsAlive = true;
+    public bool birdIsAlive = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
